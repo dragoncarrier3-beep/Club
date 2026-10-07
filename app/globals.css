@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: 198 255 46;
+  --font-display: "Barlow Condensed";
+  --font-sans: "Inter";
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink font-sans text-white antialiased;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .display {
+    @apply font-display font-bold uppercase leading-[0.95] tracking-tight;
+  }
+  .eyebrow {
+    @apply font-display text-xs font-semibold uppercase tracking-[0.22em] text-accent;
+  }
+  .card {
+    @apply rounded-xl border border-line bg-panel;
+  }
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[0_0_32px_-12px_rgb(var(--accent)/0.55)];
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 font-display text-sm font-semibold uppercase tracking-wider transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-black hover:brightness-110 hover:shadow-[0_0_24px_-6px_rgb(var(--accent)/0.8)];
+  }
+  .btn-ghost {
+    @apply btn border border-white/15 bg-white/5 text-white hover:border-accent/60 hover:text-accent;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-500;
+  }
+  .input {
+    @apply w-full rounded-md border border-white/15 bg-black/40 px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none transition focus:border-accent/70 focus:ring-1 focus:ring-accent/40;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/60;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/70;
+  }
+  .prose-club {
+    @apply space-y-4 text-[15px] leading-relaxed text-white/75;
+  }
+  .prose-club h2 {
+    @apply display pt-2 text-2xl text-white;
+  }
+  .prose-club ul {
+    @apply list-disc space-y-1 pl-5;
+  }
+  .prose-club strong {
+    @apply text-white;
+  }
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-white/[0.06];
+  }
+}
+
+.grid-glow {
+  background-image: radial-gradient(60% 60% at 70% 10%, rgb(var(--accent) / 0.16), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, 44px 44px, 44px 44px;
+}
+
+select.input option {
+  background: #101216;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
